@@ -1,0 +1,95 @@
+@charset "utf-8";
+@import "reset";
+@import "mixin";
+
+%clearfix {
+	@include clearfix;
+}
+
+html {
+	height: 100%;
+}
+body {
+	background: #d9d9d9;
+	color: #333;
+	height: 100%;
+}
+
+.shukatsuManagePage {
+	> header {
+		@extend %clearfix;
+		padding: 8px;
+		border-bottom: 1px solid #fff;
+
+		h1 {
+			font-size: 18px;
+			font-weight: bold;
+			display: inline-block;
+		}
+
+		ul {
+			float: right;
+			li {
+				display: inline-block;
+			}
+		}
+	}
+
+	.appWrapper {
+		@extend %clearfix;
+		height: 100%;
+	}
+
+	.menuNav {
+		float: left;
+		width: 20%;
+		height: 100%;
+
+		ul {
+			height: 100%;
+			border-right: 1px solid #fff;
+		}
+		li {
+			padding: 20px;
+			border-bottom: 1px solid #fff;
+			background: #c1c1c1;
+		}
+	}
+
+	.mainContent {
+		float: left;
+		width: 80%;
+		height: 100%;
+		overflow: scroll;
+		box-sizing: border-box;
+
+		> ul {
+			width: 100%;
+
+			> li {
+
+				header {
+					> ul {
+						display: table;
+						width: 100%;
+					}
+
+					li {
+						display: table-cell;
+						padding: 8px;
+						border-bottom: 1px solid #999;
+					}
+				}
+			}
+		}
+
+		.taskContent {
+			border-top: 1px solid #666;
+			display: none;
+
+			&.current {
+				display: block;
+			}
+		}
+	}
+}
