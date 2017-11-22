@@ -5,11 +5,48 @@ if (navigator.userAgent.indexOf('PhantomJS') > -1) {
   window.localStorage.clear()
 }
 
-export const ADD_MEDIA_MODEL = 'ADD_MEDIA_MODEL'
-export const CHECKOUT_MEDIA_MODEL_REQUEST = 'CHECKOUT_MEDIA_MODEL_REQUEST'
-export const CHECKOUT_MEDIA_MODEL_SUCCESS = 'CHECKOUT_MEDIA_MODEL_SUCCESS'
-export const CHECKOUT_MEDIA_MODEL_FAILURE = 'CHECKOUT_MEDIA_MODEL_FAILURE'
-export const RECEIVE_MEDIA_MODEL_PRODUCTS = 'RECEIVE_MEDIA_MODEL_PRODUCTS'
+const MediaModel = {
+  name: '',
+  rank: null,
+  url: null,
+  tel: null,
+  is_hidden: false,
+  order: null,
+  id: null,
+}
+
+const CompanyModel = {
+  name: '',
+  rank: null,
+  url: null,
+  tel: null,
+  is_hidden: false,
+  order: null,
+  id: null,
+}
+const GovernmentModel = {
+  name: '',
+  rank: null,
+  title: null,
+  body: null,
+  checked: false,
+  is_hidden: false,
+  date_id: null,
+  order: null,
+  id: null,
+}
+
+const DateModel = {
+  company_id: null,
+  government_id: null,
+  date: null,
+  title: null,
+  body: null,
+  is_hidden: false,
+  order: null,
+  id: null,
+}
+
 
 export const state = {
   todos: JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]'),

@@ -2,7 +2,8 @@
   header {
     padding: 8px;
     border-bottom: 1px solid #fff;
-    
+    background: #fafbfc;
+
     &:after {
       content: '';
       overflow: hidden;

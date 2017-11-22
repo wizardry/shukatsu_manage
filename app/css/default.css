@@ -53,10 +53,10 @@ table {
   border-spacing: 0;
 }
 
-.shukatsuManagePage > header, .shukatsuManagePage .appWrapper {
+.shukatsuManagePage .appWrapper {
   *zoom: 1;
 }
-.shukatsuManagePage > header:after, .shukatsuManagePage .appWrapper:after {
+.shukatsuManagePage .appWrapper:after {
   content: " ";
   display: block;
   height: 0;
@@ -77,37 +77,8 @@ body {
   height: 100%;
 }
 
-.shukatsuManagePage > header {
-  padding: 8px;
-  border-bottom: 1px solid #fff;
-}
-.shukatsuManagePage > header h1 {
-  font-size: 18px;
-  font-weight: bold;
-  display: inline-block;
-}
-.shukatsuManagePage > header ul {
-  float: right;
-}
-.shukatsuManagePage > header ul li {
-  display: inline-block;
-}
 .shukatsuManagePage .appWrapper {
   height: 100%;
-}
-.shukatsuManagePage .menuNav {
-  float: left;
-  width: 20%;
-  height: 100%;
-}
-.shukatsuManagePage .menuNav ul {
-  height: 100%;
-  border-right: 1px solid #fff;
-}
-.shukatsuManagePage .menuNav li {
-  padding: 20px;
-  border-bottom: 1px solid #fff;
-  background: #c1c1c1;
 }
 .shukatsuManagePage .mainContent {
   float: left;

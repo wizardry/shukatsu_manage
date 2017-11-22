@@ -16,44 +16,10 @@ body {
 }
 
 .shukatsuManagePage {
-	> header {
-		@extend %clearfix;
-		padding: 8px;
-		border-bottom: 1px solid #fff;
-
-		h1 {
-			font-size: 18px;
-			font-weight: bold;
-			display: inline-block;
-		}
-
-		ul {
-			float: right;
-			li {
-				display: inline-block;
-			}
-		}
-	}
 
 	.appWrapper {
 		@extend %clearfix;
 		height: 100%;
-	}
-
-	.menuNav {
-		float: left;
-		width: 20%;
-		height: 100%;
-
-		ul {
-			height: 100%;
-			border-right: 1px solid #fff;
-		}
-		li {
-			padding: 20px;
-			border-bottom: 1px solid #fff;
-			background: #c1c1c1;
-		}
 	}
 
 	.mainContent {

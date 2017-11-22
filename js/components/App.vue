@@ -9,14 +9,8 @@ section {
     <!-- header -->
     <appHeader></appHeader>
     <div class="appWrapper">
-      <nav class="menuNav">
-        <ul>
-          <li>媒体管理</li>
-          <li>会社管理</li>
-          <li>役所管理</li>
-          <li>日程管理</li>
-        </ul>
-      </nav>
+      <appNavigation></appNavigation>
+
       <div class="mainContent">
         <ul>
           <li>
@@ -81,6 +75,7 @@ section {
 <script>
 import { mapMutations } from 'vuex'
 import AppHeader from './AppHeader.vue'
+import AppNavigation from './appNavigation.vue'
 
 const filters = {
   all: todos => todos,
@@ -89,7 +84,7 @@ const filters = {
 }
 
 export default {
-  components: { AppHeader },
+  components: { AppHeader, AppNavigation },
   data () {
     return {
       visibility: 'all',
