@@ -12,28 +12,9 @@ section {
       <appNavigation></appNavigation>
 
       <div class="mainContent">
+        <mediaForm></mediaForm>
         <ul>
-          <li>
-            <header>
-              <ul>
-                <li class="isHidden">
-                  <input type="checkbox">
-                </li>
-                <li class="sortHandler">::</li>
-                <li class="name">株式会社ほげほげ</li>
-                <li class="time">64分</li>
-                <li class="toggle">↓</li>
-              </ul>
-            </header>
-            <div class="taskContent">
-              <button>編集</button>
-              <ul>
-                <li>場所：恵比寿</li>
-                <li>TEL：03-4444-4444</li>
-                <li>沿線：日比谷線</li>
-              </ul>
-            </div>
-          </li>
+          <mediaTodo v-for="(media_todo, index) in media_todos" :key="index" :media_todo="media_todo"></mediaTodo>
         </ul>
       </div>
     </div>
@@ -56,7 +37,7 @@ section {
         <strong>{{ remaining }}</strong>
         {{ remaining | pluralize('item') }} left
       </span>
-      <ul class="filters">
+      <ul class="filters" :if="$route.hash == '#Media'" >
         <li v-for="(val, key) in filters">
           <a :href="'#/' + key"
             :class="{ selected: visibility === key }"
@@ -75,7 +56,11 @@ section {
 <script>
 import { mapMutations } from 'vuex'
 import AppHeader from './AppHeader.vue'
-import AppNavigation from './appNavigation.vue'
+import AppNavigation from './AppNavigation.vue'
+import MediaTodo from './MediaTodo.vue'
+import MediaForm from './MediaForm.vue'
+import CompanyTodo from './CompanyTodo.vue'
+import CompanyForm from './CompanyForm.vue'
 
 const filters = {
   all: todos => todos,
@@ -83,15 +68,46 @@ const filters = {
   completed: todos => todos.filter(todo => todo.done)
 }
 
+const menus = {
+  all: menus => menus,
+  current: menus => menus.filter(menu => menu.is_current)
+}
+
 export default {
-  components: { AppHeader, AppNavigation },
+  components: { AppHeader, AppNavigation, MediaTodo, MediaForm, CompanyTodo, CompanyForm },
   data () {
     return {
       visibility: 'all',
-      filters: filters
+      filters: filters,
+      page: menus
+    }
+  },
+  watch: {
+    '$route'(to, from) {
+      console.log(to,from,this.$store.state.menus)
+      this.$store.state.menus.every(menu => {
+        if(menu.hash == to.hash) {
+          menu.is_current = true;
+        }else{
+          menu.is_current = false;
+        }
+      })
     }
   },
   computed: {
+    menuSlectHandler () {
+      console.log()
+      debugger
+      return this.$store.state.menus
+    },
+    media_todos () {
+      console.log(this.$store.state.media_todos.length)
+      return this.$store.state.media_todos
+    },
+    company_todos () {
+      console.log(this.$store.state.company_todos.length)
+      return this.$store.state.company_todos
+    },
     todos () {
       return this.$store.state.todos
     },

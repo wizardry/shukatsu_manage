@@ -1,20 +1,22 @@
 <template>
-  <li class="todo" :class="{ completed: todo.done, editing: editing }">
-    <div class="view">
-      <input class="toggle"
-        type="checkbox"
-        :checked="todo.done"
-        @change="toggleTodo({ todo: todo })">
-      <label v-text="todo.text" @dblclick="editing = true"></label>
-      <button class="destroy" @click="deleteTodo({ todo: todo })"></button>
+  <li>
+    <header>
+      <ul>
+        <li class="isHidden">
+          <input type="checkbox">
+        </li>
+        <li class="sortHandler">::</li>
+        <li class="name">株式会社ほげほげ：倉田</li>
+        <li class="rank">1</li>
+        <li class="toggle">↓</li>
+      </ul>
+    </header>
+    <div class="taskContent">
+      <button>編集</button>
+      <ul>
+        <li>URL：<a href="#">http://google.com</a></li>
+      </ul>
     </div>
-    <input class="edit"
-      v-show="editing"
-      v-focus="editing"
-      :value="todo.text"
-      @keyup.enter="doneEdit"
-      @keyup.esc="cancelEdit"
-      @blur="doneEdit">
   </li>
 </template>
 
@@ -22,8 +24,8 @@
 import { mapMutations } from 'vuex'
 
 export default {
-  name: 'Todo',
-  props: ['todo'],
+  name: 'MediaTodo',
+  props: ['media_todo'],
   data () {
     return {
       editing: false

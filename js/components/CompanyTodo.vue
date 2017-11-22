@@ -1,4 +1,26 @@
 <template>
+  <li>
+    <header>
+      <ul>
+        <li class="isHidden">
+          <input type="checkbox">
+        </li>
+        <li class="sortHandler">::</li>
+        <li class="name">株式会社ほげほげ</li>
+        <li class="time">64分</li>
+        <li class="toggle">↓</li>
+      </ul>
+    </header>
+    <div class="taskContent">
+      <button>編集</button>
+      <ul>
+        <li>場所：恵比寿</li>
+        <li>TEL：03-4444-4444</li>
+        <li>沿線：日比谷線</li>
+      </ul>
+    </div>
+  </li>
+<!--
   <li class="todo" :class="{ completed: todo.done, editing: editing }">
     <div class="view">
       <input class="toggle"
@@ -16,14 +38,15 @@
       @keyup.esc="cancelEdit"
       @blur="doneEdit">
   </li>
+-->
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 
 export default {
-  name: 'Todo',
-  props: ['todo'],
+  name: 'CompanyTodo',
+  props: ['company_todo'],
   data () {
     return {
       editing: false

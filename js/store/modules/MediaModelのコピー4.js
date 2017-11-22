@@ -15,6 +15,37 @@ const MediaModel = {
   id: null,
 }
 
+const CompanyModel = {
+  name: '',
+  rank: null,
+  url: null,
+  tel: null,
+  is_hidden: false,
+  order: null,
+  id: null,
+}
+const GovernmentModel = {
+  name: '',
+  rank: null,
+  title: null,
+  body: null,
+  checked: false,
+  is_hidden: false,
+  date_id: null,
+  order: null,
+  id: null,
+}
+
+const DateModel = {
+  company_id: null,
+  government_id: null,
+  date: null,
+  title: null,
+  body: null,
+  is_hidden: false,
+  order: null,
+  id: null,
+}
 
 
 export const state = {

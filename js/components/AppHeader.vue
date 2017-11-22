@@ -24,7 +24,7 @@
     }
   }
 </style>
-  
+
 <template>
   <header>
     <h1 class="logo">就活！マネージャー</h1>
